@@ -1,12 +1,12 @@
 // import './pre-start';
-import app from './App';
-import ConnectToMongo from './lib/mongoose';
-import APP_CONFIG from './config/config';
+import app from '../App';
+import ConnectToMongo from '../lib/mongoose';
+import APP_CONFIG from '../config/config';
 import fs from 'node:fs';
 import path from 'node:path';
 import https from 'node:https';
 import http from 'node:http';
-import User from './modules/users/model/user.model';
+import User from '../modules/users/model/user.model';
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
