@@ -9,7 +9,7 @@
     "test": "tsc && export NODE_ENV=test && mocha --trace-deprecation --no-parallel --timeout 45000 ./dist/test/**/*.spec.js",
     "tsc": "tsc",
     "docs": "apidoc -i src/ -o docs/",
-    "prod-preview": "tsc && cp -R ./src/config/sslcerts/ ./dist/config/sslcerts && npm run start-prod",
+    "prod-preview": "tsc && cp -R ./src/config/sslcerts/ ./dist/config/sslcerts && npm run start-prod"
   },
   "keywords": [],
   "author": "",
