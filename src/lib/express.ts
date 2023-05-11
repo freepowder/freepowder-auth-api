@@ -49,15 +49,15 @@ class ExpressConfig {
 
 	private initJwt(): void {
 
-		const whitelist = ['https://wierzbianski.freepowder.io/'];
-		const corsOptions = {
-			origin: function(origin, callback) {
-				const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-				callback(null, originIsWhitelisted);
-			},
-			credentials: true
-		};
-		this.app.use(cors(corsOptions));
+		// const whitelist = ['https://wierzbianski.freepowder.io/'];
+		// const corsOptions = {
+		// 	origin: function(origin, callback) {
+		// 		const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+		// 		callback(null, originIsWhitelisted);
+		// 	},
+		// 	credentials: true
+		// };
+		// this.app.use(cors(corsOptions));
 
 		this.app.use('/api', expressjwt({
 			secret: APP_CONFIG?.Jwt.Secret,
