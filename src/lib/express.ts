@@ -60,8 +60,7 @@ class ExpressConfig {
 			}
 		};
 		this.app.use(cors({
-			methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-			corsOptions
+			origin: '*'
 		}));
 
 		this.app.use('/api', expressjwt({
