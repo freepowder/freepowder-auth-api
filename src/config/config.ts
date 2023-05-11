@@ -4,6 +4,7 @@ export default {
   description: 'FP REST API - TYPESCRIPT NODEJS JWT',
   keywords: 'Nodejs, Typescript, JWT, MongoDB',
  },
+ whitelist:  process.env.WHITELIST,
  db: {
   uri: process.env.MONGO,
  },

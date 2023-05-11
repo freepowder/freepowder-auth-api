@@ -50,10 +50,7 @@ class ExpressConfig {
 	private initJwt(): void {
 
 		const whitelist = [
-			'http://localhost:4200',
-			'http://localhost:3000',
-			'http://localhost:6006',
-			'https://www.freepowder.io',
+			APP_CONFIG.whitelist
 		];
 		const corsOptions = {
 			origin: function(origin, callback) {
