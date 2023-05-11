@@ -48,7 +48,7 @@ class ExpressConfig {
 	}
 
 	private initJwt(): void {
-		const whitelist = APP_CONFIG.whitelist.split(',');
+		const whitelist = ['https://wierzbianski.freepowder.io', 'https://*.freepowder.io'];
 		const corsOptions = {
 			origin: function(origin, callback) {
 				const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
@@ -64,6 +64,7 @@ class ExpressConfig {
 			credentialsRequired: false, }).unless({
 			path: [
 				// public routes that don't require authentication
+				'/api/wierzbianski/content',
 				'/api/auth/signup',
 				'/api/auth/signin',
 				'/api/auth/signout'
