@@ -4,13 +4,12 @@
   "description": "Nodejs Express Typescript MongoDB Jwt Rest Api",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "nodemon",
+    "start": "export NODE_ENV=production && ts-node src/api/index.ts",
+    "dev": "export NODE_ENV=development && ts-node src/api/index.ts",
     "test": "tsc && export NODE_ENV=test && mocha --trace-deprecation --no-parallel --timeout 45000 ./dist/test/**/*.spec.js",
     "tsc": "tsc",
     "docs": "apidoc -i src/ -o docs/",
     "prod-preview": "tsc && cp -R ./src/config/sslcerts/ ./dist/config/sslcerts && npm run start-prod",
-    "start": "cd dist && export NODE_ENV=production && node api/index.js --env=production"
   },
   "keywords": [],
   "author": "",
