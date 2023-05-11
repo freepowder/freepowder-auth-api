@@ -12,12 +12,17 @@ import {JwtPayload} from 'jsonwebtoken';
 const env = process.env.NODE_ENV || 'development';
 
 // Set the env file
-const result2 = dotenv.config({
-  path: path.join(__dirname, `../env/${env}.env`),
-});
-if (result2.error) {
-  throw result2.error;
+if ( env !== 'production') {
+
+  const result2 = dotenv.config({
+    path: path.join(__dirname, `../env/${env}.env`),
+  });
+  if (result2.error) {
+    throw result2.error;
+  }
 }
+
+
 
 declare global {
   namespace Express {
