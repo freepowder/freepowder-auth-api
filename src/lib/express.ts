@@ -48,10 +48,7 @@ class ExpressConfig {
 	}
 
 	private initJwt(): void {
-
-		const whitelist = [
-			APP_CONFIG.whitelist
-		];
+		const whitelist = APP_CONFIG.whitelist.split(',');
 		const corsOptions = {
 			origin: function(origin, callback) {
 				const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
