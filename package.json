@@ -5,13 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node src/api/index.ts ",
     "dev": "nodemon",
     "test": "tsc && export NODE_ENV=test && mocha --trace-deprecation --no-parallel --timeout 45000 ./dist/test/**/*.spec.js",
     "tsc": "tsc",
     "docs": "apidoc -i src/ -o docs/",
     "prod-preview": "tsc && cp -R ./src/config/sslcerts/ ./dist/config/sslcerts && npm run start-prod",
-    "start-prod": "cd dist && export NODE_ENV=production && node index.js --env=production"
+    "start": "cd dist && export NODE_ENV=production && node api/index.js --env=production"
   },
   "keywords": [],
   "author": "",
