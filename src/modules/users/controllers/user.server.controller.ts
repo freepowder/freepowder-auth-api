@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import User from '../model/user.model';
 import * as mongoose from 'mongoose';
-import * as crypto from 'crypto';
+import crypto from 'crypto';
 import Auth from '../../../lib/auth';
 import * as jwt from 'jsonwebtoken';
 import APP_CONFIG from '../../../config/config';

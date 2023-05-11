@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import APP_CONFIG from '../../../config/config';
 import User from '../model/user.model';
 import Auth from '../../../lib/auth';
-import * as crypto from 'crypto';
+import crypto from 'crypto';
 
 const SIX_MONTHS = 15778476000;
 const STRATEGY = 'local';

@@ -1,9 +1,7 @@
 import {Strategy} from 'passport-local'
 import User from '../modules/users/model/user.model';
-import * as crypto from 'crypto';
-import bcrypt from "bcrypt-nodejs";
+import crypto from 'crypto';
 import passport from 'passport';
-import UserSchema from '../modules/users/model/user.model';
 
 // // serialize
 passport.serializeUser((user, done) => {
@@ -41,15 +39,11 @@ class Auth {
 				});
 		})
 	}
-	
 	public passportAuthenticate(){
 		return new Strategy({
 			usernameField: 'email',
 			passwordField: 'password'
 		}, (email, password, done) => {
-			
-			console.log('atf');
-			
 			User.findOne({ email: email })
 				.then((user) => {
 					if (!user || !user.schema.methods.comparePassword(password)) {
@@ -64,8 +58,6 @@ class Auth {
 				});
 		})
 	}
-	
-	
 	/**
 	 * Hash user password
 	 */
@@ -76,7 +68,6 @@ class Auth {
 			return password;
 		}
 	};
-	
 	/**
 	 * Check user password
 	 */
