@@ -49,7 +49,7 @@ class ExpressConfig {
 
 	private initJwt(): void {
 
-		const whitelist = ['https://wierzbianski.freepowder.io', 'https://*.freepowder.io'];
+		const whitelist = ['https://wierzbianski.freepowder.io/'];
 		const corsOptions = {
 			origin: function(origin, callback) {
 				const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
