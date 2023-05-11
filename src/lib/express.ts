@@ -50,18 +50,21 @@ class ExpressConfig {
 	private initJwt(): void {
 		console.log('@DEBUG================================');
 		const whitelist = ['https://wierzbianski.freepowder.io/'];
-		const corsOptions = {
-			origin: (origin, callback) => {
-				if (whitelist.indexOf(origin) !== -1) {
-					callback(null, true);
-				} else {
-					callback(new Error());
-				}
+
+		this.app.use((req, res, next) => {
+			const origin = req.get('referer');
+			const isWhitelisted = whitelist.find((w) => origin && origin.includes(w));
+			if (isWhitelisted) {
+				res.setHeader('Access-Control-Allow-Origin', '*');
+				res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+				res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Authorization');
+				res.setHeader('Access-Control-Allow-Credentials', 'true');
 			}
-		};
-		this.app.use(cors({
-			origin: '*'
-		}));
+			// Pass to next layer of middleware
+			if (req.method === 'OPTIONS') {
+				res.sendStatus(200);
+			} else { next(); }
+		});
 
 		this.app.use('/api', expressjwt({
 			secret: APP_CONFIG?.Jwt.Secret,
